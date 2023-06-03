@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: b45f416920cacc946b8c793e328ce895
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - revolverAmmo: {fileID: 2724295423268628579, guid: ab40dc026578aca4cbb63d2455055b56, type: 3}
+  - hookAmmo: {fileID: 2682019048326776207, guid: f808876f7a350a1429da483de60de807, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
