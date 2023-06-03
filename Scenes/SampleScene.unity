@@ -1275,6 +1275,14 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 5562530000556933139, guid: 810104f9bc09056459909080bd3c106d, type: 3}
+      propertyPath: atackCooldown
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562530000556933139, guid: 810104f9bc09056459909080bd3c106d, type: 3}
+      propertyPath: atackDuration
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810104f9bc09056459909080bd3c106d, type: 3}
 --- !u!1001 &8111693999792822229

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Status status;
+    protected Rigidbody2D rb;
+    protected Status status;
+    protected float[,] angulo = {
+        {135, 90, 45}, {180, 0, 0}, {-135, -90, -45}
+    };
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -14,7 +17,7 @@ public class Character : MonoBehaviour
 
     virtual protected void Update() {
         //Andar para os lados
-        rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
+        if(status.actualAtackDuration <= 0) rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
     }
 
     virtual public void TakeDamage(){

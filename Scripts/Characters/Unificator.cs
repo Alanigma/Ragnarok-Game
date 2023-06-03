@@ -19,7 +19,7 @@ public class Unificator : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Status>();
+        status = GetComponent<Status>();
 
         //Quadruplicar quando Spawnar
         spawneds.Add(Instantiate(prefab, transform.position, Quaternion.identity));
@@ -66,9 +66,12 @@ public class Unificator : MonoBehaviour
     public void Atack(){
         atackButtonPress = false;
         if(atackTimePress < 2){
-            foreach (Character cc in characterControllers)
-            {
-                cc.Atack();
+            if(status.actualAtackCooldown <= 0){
+                foreach (Character cc in characterControllers)
+                {
+                    cc.Atack();
+                }
+                status.AtackCooldownCount();
             }
         } else{
             foreach (Character cc in characterControllers)
