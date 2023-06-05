@@ -179,8 +179,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   atackButtonPress: 0
-  jumpButtonPress: 0
   specialButtonPress: 0
+  atackTimePress: 0
+  specialTimePress: 0
 --- !u!114 &5562530000556933139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +194,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d614e01161fb8d142bb8230e220c529b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 4
   jumpForce: 10
   maxSpeedY: -10
   atackCooldown: 2
+  atackDuration: 0
   stamina: 5
+  canMove: 1
+  actualAtackCooldown: 0
+  actualAtackDuration: 0
+  actualStamina: 0
   axisX: 0
   axisY: 0
   axisXLast: 1

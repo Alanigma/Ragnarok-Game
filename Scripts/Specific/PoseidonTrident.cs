@@ -14,6 +14,7 @@ public class PoseidonTrident : MonoBehaviour
 
     public IEnumerator Atack(){
         transform.localPosition = new Vector3(0, -0.09f, 0);
+        GetComponent<ParticleSystem>().Play();
         col.enabled = true;
         while (Vector2.Distance(transform.position, owner.transform.position) < 0.8f)
         {

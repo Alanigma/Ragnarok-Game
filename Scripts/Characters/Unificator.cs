@@ -15,6 +15,7 @@ public class Unificator : MonoBehaviour
     public float atackTimePress;
     public float specialTimePress;
     private Collider2D col;
+    private Rigidbody2D rb;
     private Status status;
 
     void Start()
@@ -32,6 +33,7 @@ public class Unificator : MonoBehaviour
         spawneds[3].transform.parent = gameObject.transform;
 
         col = spawneds[0].GetComponent<Collider2D>();
+        rb = spawneds[0].GetComponent<Rigidbody2D>();
 
         foreach (GameObject s in spawneds)
         {
@@ -44,6 +46,21 @@ public class Unificator : MonoBehaviour
         if(atackButtonPress){
             atackTimePress += Time.deltaTime;
         }
+
+        //Flip
+        if(rb.velocity.x > 0){
+            Flip(false);
+        } else if(rb.velocity.x < 0){
+            Flip(true);
+        }
+        //Animacoes
+        if(IsGrounded()){
+            if(rb.velocity.x == 0){
+                SetAnimation("idle");
+            } else{
+                SetAnimation("walking");
+            }
+        }
     }
 
     public bool IsGrounded()
@@ -52,6 +69,20 @@ public class Unificator : MonoBehaviour
         RaycastHit2D ground = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.1f, layerGround);
         if(ground.collider != null) isGrounded = true;
         return isGrounded;
+    }
+
+    public void SetAnimation(string animation){
+        foreach (GameObject s in spawneds)
+        {
+            s.GetComponent<Animator>().Play(animation);
+        }
+    }
+
+    public void Flip(bool direction){
+        foreach (GameObject s in spawneds)
+        {
+            s.GetComponent<SpriteRenderer>().flipX = direction;
+        }
     }
 
     public void Jump(){
