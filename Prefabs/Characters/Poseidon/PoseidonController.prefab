@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 61624304722281288}
   - component: {fileID: 6319116692077209072}
   - component: {fileID: 5562530000556933139}
+  - component: {fileID: 1552490078127176884}
   m_Layer: 0
   m_Name: PoseidonController
   m_TagString: Untagged
@@ -199,12 +200,33 @@ MonoBehaviour:
   maxSpeedY: -10
   atackCooldown: 2
   atackDuration: 0
-  stamina: 5
+  atackCost: 40
+  specialCooldown: 0
+  specialDuration: 0
+  specialCost: 1
+  maxLife: 100
+  maxStamina: 200
+  life: 100
+  stamina: 100
+  staminaRegen: 0.4
   canMove: 1
   actualAtackCooldown: 0
   actualAtackDuration: 0
-  actualStamina: 0
   axisX: 0
   axisY: 0
   axisXLast: 1
   axisYLast: 0
+--- !u!114 &1552490078127176884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61624304722281291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd196289a15862439165fd06878a0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeBar: {fileID: 0}
+  staminaBar: {fileID: 0}

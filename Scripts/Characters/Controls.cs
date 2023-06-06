@@ -31,7 +31,10 @@ public class Controls : MonoBehaviour
     }
 
     public void SpecialButton(InputAction.CallbackContext value){
-        if(value.phase.ToString() == "Started") controller.specialButtonPress = true;
+        if(value.phase.ToString() == "Started"){
+            controller.specialButtonPress = true;
+            controller.Special();
+        }
         if(value.phase.ToString() == "Canceled") controller.specialButtonPress = false;
     }
 }

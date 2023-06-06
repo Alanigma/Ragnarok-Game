@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8683242252714494421}
   - component: {fileID: 470365905036020807}
   - component: {fileID: 4931628948165783043}
+  - component: {fileID: -4733239142437974252}
   m_Layer: 6
   m_Name: GroundBig
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.17398429}
   m_EdgeRadius: 0
+--- !u!114 &-4733239142437974252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294411716365004008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f31eb8b54164b143bc2fc3ee42a9ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 500

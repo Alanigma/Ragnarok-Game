@@ -17,6 +17,8 @@ public class Unificator : MonoBehaviour
     private Collider2D col;
     private Rigidbody2D rb;
     private Status status;
+    private Vector2 beforePosition;
+    private Vector2 actualPosition;
 
     void Start()
     {
@@ -39,6 +41,10 @@ public class Unificator : MonoBehaviour
         {
             characterControllers.Add(s.GetComponent<Character>());
         }
+
+        beforePosition = spawneds[0].transform.position;
+        actualPosition = spawneds[0].transform.position;
+        StartCoroutine(checkMoviment());
     }
 
     void Update()
@@ -48,18 +54,34 @@ public class Unificator : MonoBehaviour
         }
 
         //Flip
-        if(rb.velocity.x > 0){
-            Flip(false);
-        } else if(rb.velocity.x < 0){
-            Flip(true);
+        if(status.isMoving){
+            if(rb.velocity.x > 0){
+                Flip(1, 1);
+            } else if(rb.velocity.x < 0){
+                Flip(-1, 1);
+            }
         }
         //Animacoes
         if(IsGrounded()){
-            if(rb.velocity.x == 0){
-                SetAnimation("idle");
-            } else{
+            if(status.isMoving){
                 SetAnimation("walking");
+            } else{
+                SetAnimation("idle");
             }
+        }
+    }
+
+    private IEnumerator checkMoviment(){
+        while (true)
+        {
+            actualPosition = spawneds[0].transform.position;
+            if(actualPosition == beforePosition){
+                status.isMoving = false;
+            } else{
+                status.isMoving = true;
+                beforePosition = actualPosition;
+            }
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -78,10 +100,10 @@ public class Unificator : MonoBehaviour
         }
     }
 
-    public void Flip(bool direction){
+    public void Flip(int x, int y){
         foreach (GameObject s in spawneds)
         {
-            s.GetComponent<SpriteRenderer>().flipX = direction;
+            s.transform.localScale = new Vector2(x, y);
         }
     }
 
@@ -95,21 +117,31 @@ public class Unificator : MonoBehaviour
     }
 
     public void Atack(){
-        atackButtonPress = false;
-        if(atackTimePress < 2){
-            if(status.actualAtackCooldown <= 0){
+        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && status.actualAtackDuration <= 0){
+            status.GastarStamina(status.atackCost);
+            atackButtonPress = false;
+            if(atackTimePress < 2){
+                if(status.actualAtackCooldown <= 0){
+                    foreach (Character cc in characterControllers)
+                    {
+                        cc.Atack();
+                    }
+                    status.AtackCooldownCount();
+                }
+            } else{
                 foreach (Character cc in characterControllers)
                 {
-                    cc.Atack();
+                    cc.SuperAtack();
                 }
-                status.AtackCooldownCount();
             }
-        } else{
-            foreach (Character cc in characterControllers)
-            {
-                cc.SuperAtack();
-            }
+            atackTimePress = 0;
         }
-        atackTimePress = 0;
+    }
+
+    public void Special(){
+        foreach (Character cc in characterControllers)
+        {
+            StartCoroutine(cc.Special());
+        }
     }
 }
