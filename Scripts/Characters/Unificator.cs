@@ -10,10 +10,13 @@ public class Unificator : MonoBehaviour
     [SerializeField] private LayerMask layerGround;
     [SerializeField] private LayerMask layerDamage;
 
+    public bool jumpButtonPress;
     public bool atackButtonPress;
     public bool specialButtonPress;
     public float atackTimePress;
     public float specialTimePress;
+    public bool isGrounded;
+    private RaycastHit2D ground;
     private Collider2D col;
     private Rigidbody2D rb;
     private Status status;
@@ -49,6 +52,10 @@ public class Unificator : MonoBehaviour
 
     void Update()
     {
+        //GroundCheck
+        ground = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.1f, layerGround);
+        isGrounded = ground.collider != null;
+
         if(atackButtonPress){
             atackTimePress += Time.deltaTime;
         }
@@ -62,12 +69,15 @@ public class Unificator : MonoBehaviour
             }
         }
         //Animacoes
-        if(IsGrounded()){
+        if(isGrounded){
             if(status.isMoving){
                 SetAnimation("walking");
             } else{
                 SetAnimation("idle");
             }
+        }
+        if(!isGrounded){
+            SetAnimation("falling");
         }
     }
 
@@ -75,7 +85,7 @@ public class Unificator : MonoBehaviour
         while (true)
         {
             actualPosition = spawneds[0].transform.position;
-            if(actualPosition == beforePosition){
+            if(Vector2.Distance(actualPosition, beforePosition) < 0.1f){
                 status.isMoving = false;
             } else{
                 status.isMoving = true;
@@ -83,14 +93,6 @@ public class Unificator : MonoBehaviour
             }
             yield return new WaitForSeconds(0.05f);
         }
-    }
-
-    public bool IsGrounded()
-    {
-        bool isGrounded = false;
-        RaycastHit2D ground = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.1f, layerGround);
-        if(ground.collider != null) isGrounded = true;
-        return isGrounded;
     }
 
     public void SetAnimation(string animation){
@@ -108,7 +110,7 @@ public class Unificator : MonoBehaviour
     }
 
     public void Jump(){
-        if(IsGrounded()){
+        if(isGrounded){
             foreach (Character cc in characterControllers)
             {
                 cc.Jump();

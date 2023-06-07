@@ -21,7 +21,11 @@ public class Character : MonoBehaviour
 
     virtual protected void Update() {
         //Andar para os lados
-        if(status.actualAtackDuration <= 0 && status.canMove) rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
+        if(status.actualAtackDuration <= 0 && status.canMove){
+            rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
+        }
+
+        //Travar o personagem
         if(!status.canMove){
             rb.simulated = false;
             rb.velocity = new Vector2(0, 0);

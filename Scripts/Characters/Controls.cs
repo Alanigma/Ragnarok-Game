@@ -27,7 +27,11 @@ public class Controls : MonoBehaviour
     }
 
     public void JumpButton(InputAction.CallbackContext value){
-        if(value.phase.ToString() == "Started") controller.Jump();
+        if(value.phase.ToString() == "Started"){
+            controller.jumpButtonPress = true;
+            controller.Jump();
+        }
+        if(value.phase.ToString() == "Canceled") controller.jumpButtonPress = false;
     }
 
     public void SpecialButton(InputAction.CallbackContext value){

@@ -17,7 +17,7 @@ public class PoseidonBasic : Character
         if(axisX == 0 && axisY == 0){
             axisX = GetComponentInParent<Status>().axisXLast;
         }
-        if(GetComponentInParent<Unificator>().IsGrounded() && axisY != 1){
+        if(GetComponentInParent<Unificator>().isGrounded && axisY != 1){
             axisX = GetComponentInParent<Status>().axisXLast;
             axisY = GetComponentInParent<Status>().axisYLast;
         }
@@ -42,13 +42,14 @@ public class PoseidonBasic : Character
         if(axisX == 0 && axisY == 0){
             axisX = GetComponentInParent<Status>().axisXLast;
         }
-        if(GetComponentInParent<Unificator>().IsGrounded() && axisY != 1){
+        if(GetComponentInParent<Unificator>().isGrounded && axisY != 1){
             axisX = GetComponentInParent<Status>().axisXLast;
             axisY = GetComponentInParent<Status>().axisYLast;
         }
 
         if(status.stamina > status.specialCost){
             status.canMove = false;
+            if(atacando != null) StopCoroutine(atacando);
             atacando = StartCoroutine(tridente.GetComponent<PoseidonTrident>().Special(angulo[axisX+1, axisY+1]));
             while (true)
             {

@@ -25,21 +25,13 @@ public class PoseidonTrident : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        // if(other.gameObject.layer == 6){
-        //     try
-        //     {
-        //         other.gameObject.GetComponent<Ground>().life -= GetComponent<Damageble>().damage;
-        //     }
-        //     catch (System.Exception)
-        //     {
-        //         throw;
-        //     }
-        // }
+        //
     }
 
     public IEnumerator Atack(){
         transform.localPosition = new Vector3(0, 0, 0);
         GetComponent<ParticleSystem>().Play();
+        GetComponent<AudioSource>().Play();
         col.enabled = true;
         while (Vector2.Distance(transform.position, owner.transform.position) < 0.8f)
         {
