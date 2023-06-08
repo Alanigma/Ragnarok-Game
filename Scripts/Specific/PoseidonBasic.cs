@@ -49,6 +49,7 @@ public class PoseidonBasic : Character
 
         if(status.stamina > status.specialCost){
             status.canMove = false;
+            tridente.GetComponent<SpriteRenderer>().enabled = false;
             if(atacando != null) StopCoroutine(atacando);
             atacando = StartCoroutine(tridente.GetComponent<PoseidonTrident>().Special(angulo[axisX+1, axisY+1]));
             while (true)
@@ -62,6 +63,7 @@ public class PoseidonBasic : Character
                 }
                 yield return new WaitForSeconds(0.1f);
             }
+            tridente.GetComponent<SpriteRenderer>().enabled = true;
             status.canMove = true;
         }
     }

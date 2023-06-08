@@ -50,6 +50,7 @@ public class PoseidonTrident : MonoBehaviour
             for (float i = angulo - 20; i <= angulo + 20; i += 10)
             {
                 shot = Instantiate(gameObject, transform.position, Quaternion.Euler(0, 0, i));
+                shot.GetComponent<SpriteRenderer>().enabled = true;
                 shot.transform.parent = owner.GetComponent<Character>().shotSpace.transform;
                 shot.GetComponent<PoseidonTrident>().arremessado = true;
                 shot.GetComponent<Collider2D>().enabled = true;

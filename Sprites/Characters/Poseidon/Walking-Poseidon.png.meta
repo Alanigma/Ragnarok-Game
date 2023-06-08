@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0582cf79085aca74c824aff75eb5cb5c
+guid: 81e63ee1912581e459c819d4bc78bc39
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -155,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ae61bab43b52a443a3f03e95be72949
-      internalID: -527865451
+      spriteID: 4e5740440868a984a98f064f43947a76
+      internalID: -1145299662
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287fe95299037434bbd608618d4647d8
-      internalID: 2047834292
+      spriteID: 19c4fac6e8849cf47abee1bbf26af980
+      internalID: 1002765823
       vertices: []
       indices: 
       edges: []
@@ -197,8 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7215a5d380215d047a30631d7d5e26b4
-      internalID: 1810426855
+      spriteID: f4df2b3ee7b568b4197e56fa28a685d4
+      internalID: 1247546282
       vertices: []
       indices: 
       edges: []
@@ -214,9 +214,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walking-Poseidon_0: -527865451
-      Walking-Poseidon_1: 2047834292
-      Walking-Poseidon_2: 1810426855
+      Walking-Poseidon_0: -1145299662
+      Walking-Poseidon_1: 1002765823
+      Walking-Poseidon_2: 1247546282
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

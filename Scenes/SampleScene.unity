@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1059918921216971240, guid: bc57bf54a572d85419aecd63cfd60b59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1059918921216971240, guid: bc57bf54a572d85419aecd63cfd60b59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1717,7 +1717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1059918921216971240, guid: bc57bf54a572d85419aecd63cfd60b59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1059918921216971240, guid: bc57bf54a572d85419aecd63cfd60b59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1953,7 +1953,7 @@ PrefabInstance:
       objectReference: {fileID: 137310311}
     - target: {fileID: 5562530000556933139, guid: 810104f9bc09056459909080bd3c106d, type: 3}
       propertyPath: speed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5562530000556933139, guid: 810104f9bc09056459909080bd3c106d, type: 3}
       propertyPath: atackCost

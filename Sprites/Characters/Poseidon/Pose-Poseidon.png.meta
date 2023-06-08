@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: daf3ee9737b281f4c8c2f8fdcc8742c0
+guid: 335eeb489453f17468a1c1faf5ec3fda
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,14 +149,14 @@ TextureImporter:
         width: 64
         height: 116
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2da6264fcac8b74582344d199575c58
-      internalID: 386213432
+      spriteID: 58c32c9a3565fa2439b7ea0139b07a41
+      internalID: 982424630
       vertices: []
       indices: 
       edges: []
@@ -168,16 +168,16 @@ TextureImporter:
         x: 28
         y: 4
         width: 64
-        height: 116
+        height: 114
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95ee363757649749b9d2d3551350926
-      internalID: -1379803466
+      spriteID: 6d4ac580e80e89845bfdc9b1028f24bd
+      internalID: 1913853889
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pose-Poseidon_0: 386213432
-      Pose-Poseidon_1: -1379803466
+      Pose-Poseidon_0: 982424630
+      Pose-Poseidon_1: 1913853889
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

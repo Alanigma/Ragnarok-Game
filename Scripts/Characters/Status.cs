@@ -26,6 +26,8 @@ public class Status : MonoBehaviour
     public bool isMoving;
     public float actualAtackCooldown;
     public float actualAtackDuration;
+    public float actualSpecialCooldown;
+    public float actualSpecialDuration;
     public int axisX;
     public int axisY;
     public int axisXLast = 1;
@@ -42,6 +44,12 @@ public class Status : MonoBehaviour
         }
         if(actualAtackDuration > 0){
             actualAtackDuration -= Time.deltaTime;
+        }
+        if(actualSpecialCooldown > 0){
+            actualSpecialCooldown -= Time.deltaTime;
+        }
+        if(actualSpecialDuration > 0){
+            actualSpecialDuration -= Time.deltaTime;
         }
     }
 
@@ -62,5 +70,11 @@ public class Status : MonoBehaviour
     }
     public void AtackDurationCount(){
         actualAtackDuration = atackDuration;
+    }
+    public void SpecialCooldownCount(){
+        actualSpecialCooldown = specialCooldown;
+    }
+    public void SpecialDurationCount(){
+        actualSpecialDuration = specialDuration;
     }
 }

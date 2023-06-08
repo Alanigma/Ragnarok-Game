@@ -47,7 +47,6 @@ public class Unificator : MonoBehaviour
 
         beforePosition = spawneds[0].transform.position;
         actualPosition = spawneds[0].transform.position;
-        StartCoroutine(checkMoviment());
     }
 
     void Update()
@@ -61,37 +60,27 @@ public class Unificator : MonoBehaviour
         }
 
         //Flip
-        if(status.isMoving){
-            if(rb.velocity.x > 0){
-                Flip(1, 1);
-            } else if(rb.velocity.x < 0){
-                Flip(-1, 1);
-            }
+        if(status.axisX > 0){
+            Flip(1, 1);
+        } else if(status.axisX < 0){
+            Flip(-1, 1);
         }
-        //Animacoes
-        if(isGrounded){
-            if(status.isMoving){
-                SetAnimation("walking");
-            } else{
-                SetAnimation("idle");
-            }
-        }
-        if(!isGrounded){
-            SetAnimation("falling");
-        }
-    }
 
-    private IEnumerator checkMoviment(){
-        while (true)
-        {
-            actualPosition = spawneds[0].transform.position;
-            if(Vector2.Distance(actualPosition, beforePosition) < 0.1f){
-                status.isMoving = false;
-            } else{
-                status.isMoving = true;
-                beforePosition = actualPosition;
+        //Animacoes
+        if(status.actualAtackDuration > 0 || specialButtonPress){
+            SetAnimation("atacking");
+        }
+        else{
+            if(isGrounded){
+                if(status.axisX != 0){
+                    SetAnimation("walking");
+                } else{
+                    SetAnimation("idle");
+                }
             }
-            yield return new WaitForSeconds(0.05f);
+            if(!isGrounded){
+                SetAnimation("falling");
+            }
         }
     }
 
