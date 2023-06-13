@@ -5,44 +5,60 @@ using UnityEngine;
 public class PoseidonBasic : Character
 {
     [SerializeField] private GameObject tridente;
+    [SerializeField] private GameObject specialTrident;
+
     [SerializeField] private float dashForce;
     private Coroutine atacando;
 
-    override public void Atack () {
-        status.AtackDurationCount();
-
-        //Consertar direcao do ataque
-        int axisY = GetComponentInParent<Status>().axisY;
-        int axisX = GetComponentInParent<Status>().axisX;
-        if(axisX == 0 && axisY == 0){
-            axisX = GetComponentInParent<Status>().axisXLast;
+    override protected void Start() {
+        base.Start();
+        for (int i = 0; i < 15; i++)
+        {
+            tridente.GetComponent<PoseidonTrident>().tridentes.Add(Instantiate(specialTrident, new Vector2(14, -6), Quaternion.identity));
+            tridente.GetComponent<PoseidonTrident>().tridentes[i].transform.parent = instanceSpace.transform;
+            tridente.GetComponent<PoseidonTrident>().tridentes[i].GetComponent<PoseidonTrident>().owner = gameObject;
         }
-        if(GetComponentInParent<Unificator>().isGrounded && axisY != 1){
-            axisX = GetComponentInParent<Status>().axisXLast;
-            axisY = GetComponentInParent<Status>().axisYLast;
-        }
-
-        //Tridente
-        tridente.transform.rotation = Quaternion.Euler(0, 0, angulo[axisX+1, axisY+1]);
-        StartCoroutine(tridente.GetComponent<PoseidonTrident>().Atack());
-
-        //Dash
-        rb.velocity = new Vector2(dashForce * axisX, dashForce * axisY);
     }
 
-    public override void SuperAtack()
+    override public bool Atack () {
+        bool can = base.Atack();
+        if(can){
+            //Consertar direcao do ataque
+            int axisY = GetComponentInParent<Status>().axisY;
+            int axisX = GetComponentInParent<Status>().axisX;
+            if(axisX == 0 && axisY == 0){
+                axisX = GetComponentInParent<Status>().axisXLast;
+            }
+            if(status.isGrounded && axisY != 1){
+                axisX = GetComponentInParent<Status>().axisXLast;
+                axisY = GetComponentInParent<Status>().axisYLast;
+            }
+
+            //Tridente
+            tridente.transform.rotation = Quaternion.Euler(0, 0, angulo[axisX+1, axisY+1]);
+            StartCoroutine(tridente.GetComponent<PoseidonTrident>().Atack());
+
+            //Dash
+            rb.velocity = new Vector2(dashForce * axisX, dashForce * axisY);
+        }
+        //So pq o outro tem que ser bool
+        return true;
+    }
+
+    public override void Special()
     {
-        Atack();
+        base.Special();
+        StartCoroutine(AtackRain());
     }
 
-    override public IEnumerator Special(){
+    private IEnumerator AtackRain(){
         //Consertar direcao do ataque
         int axisY = GetComponentInParent<Status>().axisY;
         int axisX = GetComponentInParent<Status>().axisX;
         if(axisX == 0 && axisY == 0){
             axisX = GetComponentInParent<Status>().axisXLast;
         }
-        if(GetComponentInParent<Unificator>().isGrounded && axisY != 1){
+        if(status.isGrounded && axisY != 1){
             axisX = GetComponentInParent<Status>().axisXLast;
             axisY = GetComponentInParent<Status>().axisYLast;
         }
@@ -55,7 +71,7 @@ public class PoseidonBasic : Character
             while (true)
             {
                 status.GastarStamina(status.specialCost);
-                if(status.stamina <= 0 || !unificator.specialButtonPress){
+                if(status.stamina <= 0 || !status.usingSpecial){
                     StopCoroutine(atacando);
                     tridente.transform.localPosition = new Vector3(0, 0, 0);
                     tridente.transform.rotation = Quaternion.Euler(0, 0, 135);

@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 61624306006899637}
   - component: {fileID: 61624306265785414}
   - component: {fileID: 61624304722281288}
-  - component: {fileID: 6319116692077209072}
-  - component: {fileID: 5562530000556933139}
   - component: {fileID: 1552490078127176884}
   m_Layer: 0
-  m_Name: PoseidonController
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,64 +156,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6319116692077209072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61624304722281291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73242ab67d199cd4b9fb3415a22e76ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawneds: []
-  characterControllers: []
-  prefab: {fileID: 83124575467841658, guid: 0e0fbf28533c077438f8c96f4bc8d69e, type: 3}
-  layerGround:
-    serializedVersion: 2
-    m_Bits: 64
-  layerDamage:
-    serializedVersion: 2
-    m_Bits: 128
-  atackButtonPress: 0
-  specialButtonPress: 0
-  atackTimePress: 0
-  specialTimePress: 0
---- !u!114 &5562530000556933139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61624304722281291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d614e01161fb8d142bb8230e220c529b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 10
-  maxSpeedY: -10
-  atackCooldown: 2
-  atackDuration: 0
-  atackCost: 40
-  specialCooldown: 0
-  specialDuration: 0
-  specialCost: 1
-  maxLife: 100
-  maxStamina: 200
-  life: 100
-  stamina: 100
-  staminaRegen: 0.4
-  canMove: 1
-  actualAtackCooldown: 0
-  actualAtackDuration: 0
-  axisX: 0
-  axisY: 0
-  axisXLast: 1
-  axisYLast: 0
 --- !u!114 &1552490078127176884
 MonoBehaviour:
   m_ObjectHideFlags: 0

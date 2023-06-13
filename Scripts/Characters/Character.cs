@@ -5,18 +5,18 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public GameObject shotSpace;
+    protected GameObject instanceSpace;
     protected Rigidbody2D rb;
     protected Status status;
-    protected Unificator unificator;
     protected float[,] angulo = {
         {135, 90, 45}, {180, 0, 0}, {-135, -90, -45}
     };
 
-    private void Start() {
+    virtual protected void Start() {
         rb = GetComponent<Rigidbody2D>();
-        status = GetComponentInParent<Status>();
-        unificator = GetComponentInParent<Unificator>();
+        status = GetComponent<Status>();
         shotSpace = GameObject.FindGameObjectWithTag("shot-space");
+        instanceSpace = GameObject.FindGameObjectWithTag("instance-space");
     }
 
     virtual protected void Update() {
@@ -34,31 +34,43 @@ public class Character : MonoBehaviour
         }
     }
 
-    virtual public void TakeDamage(){
-        print(gameObject.name+" foi atingido");
+    virtual public void TakeDamage(float damage){
+        status.life -= damage;
+        if(status.life <= 0){
+            Dead();
+        }
+    }
+
+    virtual protected void Dead(){
+        print(gameObject.name + " morreu");
     }
 
     public void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(transform.up * status.jumpForce);
+        if(status.isGrounded){
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(transform.up * status.jumpForce);
+        }
     }
 
-    virtual public void Atack () {
-        print("Atack");
-    }
-    
-    virtual public void SuperAtack () {
-        print("Super Atack");
+    virtual public bool Atack () {
+        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && status.actualAtackDuration <= 0){
+            status.GastarStamina(status.atackCost);
+            if(status.actualAtackCooldown <= 0){
+                status.AtackCooldownCount();
+                status.AtackDurationCount();
+                return true;
+            }
+        }
+        return false;
     }
 
-    virtual public IEnumerator Special(){
-        print("Special");
-        yield return new WaitForSeconds(1);
-    }
-    
-    virtual public IEnumerator SuperSpecial(){
-        print("Super Special");
-        yield return new WaitForSeconds(1);
+    virtual public void Special(){
+        if(status.stamina > status.specialCost && status.actualSpecialCooldown <= 0 && status.actualSpecialDuration <= 0){
+            status.GastarStamina(status.specialCost);
+            if(status.actualSpecialCooldown <= 0){
+                status.SpecialCooldownCount();
+            }
+        }
     }
 }

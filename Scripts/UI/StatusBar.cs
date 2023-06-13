@@ -11,7 +11,7 @@ public class StatusBar : MonoBehaviour
     private Status status;
 
     private void Start() {
-        status = GetComponent<Status>();
+        status = transform.GetChild(0).GetComponent<Status>();
     }
 
     private void Update() {

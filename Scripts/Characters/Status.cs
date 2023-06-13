@@ -5,6 +5,7 @@ using UnityEngine;
 public class Status : MonoBehaviour
 {
     [Header("Settings")]
+    [SerializeField] protected LayerMask layerGround;
     public float speed;
     public float jumpForce;
     public float maxSpeedY = -10;
@@ -22,8 +23,6 @@ public class Status : MonoBehaviour
 
     [Header("Debug")]
     private float staminaRegenCooldown;
-    public bool canMove = true;
-    public bool isMoving;
     public float actualAtackCooldown;
     public float actualAtackDuration;
     public float actualSpecialCooldown;
@@ -32,24 +31,46 @@ public class Status : MonoBehaviour
     public int axisY;
     public int axisXLast = 1;
     public int axisYLast = 0;
+    public bool canMove = true;
+    public bool isMoving;
+    public bool usingAtack;
+    public bool usingSpecial;
+    public bool isGrounded;
+
+    private RaycastHit2D ground;
+    private Collider2D col;
 
     private void Start() {
+        col = GetComponent<Collider2D>();
         life = maxLife;
         stamina = maxStamina;
     }
 
     private void Update() {
+        //GroundCheck
+        ground = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.1f, layerGround);
+        isGrounded = ground.collider != null;
+
+        //Atacando
         if(actualAtackCooldown > 0){
             actualAtackCooldown -= Time.deltaTime;
         }
         if(actualAtackDuration > 0){
             actualAtackDuration -= Time.deltaTime;
+            usingAtack = true;
+        } else{
+            usingAtack = false;
         }
         if(actualSpecialCooldown > 0){
             actualSpecialCooldown -= Time.deltaTime;
         }
-        if(actualSpecialDuration > 0){
-            actualSpecialDuration -= Time.deltaTime;
+        if(specialDuration != Mathf.Infinity){
+            if(actualSpecialDuration > 0){
+                actualSpecialDuration -= Time.deltaTime;
+                usingSpecial = true;
+            } else{
+                usingSpecial = false;
+            }
         }
     }
 

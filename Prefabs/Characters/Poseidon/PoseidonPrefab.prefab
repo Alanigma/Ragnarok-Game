@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 633223709758313460}
   - component: {fileID: -6844918988619598555}
   - component: {fileID: 3682283868756509984}
+  - component: {fileID: -895150210242684818}
   - component: {fileID: 3978547082824893170}
+  - component: {fileID: -26697065139128096}
   m_Layer: 8
   m_Name: PoseidonPrefab
   m_TagString: Player
@@ -104,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotSpace: {fileID: 0}
   tridente: {fileID: 2337616461715087204}
+  specialTrident: {fileID: 572299179512487442, guid: 8953e1cd0cbbbae4390bf440e4bf8687, type: 3}
   dashForce: 12
 --- !u!61 &633223709758313460
 BoxCollider2D:
@@ -164,7 +167,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704a2ad68c740de479c72875f61adc51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dependent: {fileID: 0}
+  clones: []
+  remove:
+  - {fileID: 2337616461715087204}
+  teleporteOn: 1
+--- !u!114 &-895150210242684818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83124575467841658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f6f809cd52a4340830091c6a7195fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3978547082824893170
 Animator:
   serializedVersion: 5
@@ -186,6 +204,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-26697065139128096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83124575467841658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d614e01161fb8d142bb8230e220c529b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerGround:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 2
+  jumpForce: 500
+  maxSpeedY: -10
+  atackCooldown: 0.4
+  atackDuration: 0.35
+  atackCost: 40
+  specialCooldown: 0
+  specialDuration: Infinity
+  specialCost: 5
+  maxLife: 100
+  maxStamina: 250
+  life: 100
+  stamina: 100
+  staminaRegen: 0.6
+  actualAtackCooldown: 0
+  actualAtackDuration: 0
+  actualSpecialCooldown: 0
+  actualSpecialDuration: 0
+  axisX: 0
+  axisY: 0
+  axisXLast: 1
+  axisYLast: 0
+  canMove: 1
+  isMoving: 0
+  usingAtack: 0
+  usingSpecial: 0
+  isGrounded: 0
 --- !u!1001 &9185421478493776875
 PrefabInstance:
   m_ObjectHideFlags: 0

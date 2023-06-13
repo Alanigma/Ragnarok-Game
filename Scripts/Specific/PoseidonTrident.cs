@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PoseidonTrident : MonoBehaviour
 {
-    [SerializeField] private GameObject owner;
+    public GameObject owner;
+    public List<GameObject> tridentes;
     [SerializeField] private float speed;
-    private bool arremessado;
     [SerializeField] private float arremessadoTempo;
+
+    [SerializeField] private bool arremessado;
+    private int actualTridente;
     private Collider2D col;
-    private GameObject shot;
 
     private void Start() {
         col = GetComponent<Collider2D>();
@@ -20,12 +22,23 @@ public class PoseidonTrident : MonoBehaviour
         if(arremessado){
             transform.Translate(new Vector3(0, speed, 0));
             arremessadoTempo -= Time.deltaTime;
-            if(arremessadoTempo <= 0) Destroy(gameObject);
+            if(arremessadoTempo <= 0){
+                Remove();
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        //
+        if(arremessado){
+            Remove();
+        }
+    }
+
+    public void Remove(){
+        GetComponent<Teleportable>().teleporteOn = false;
+        arremessadoTempo = 0.2f;
+        arremessado = false;
+        transform.position = new Vector2(14, -6);
     }
 
     public IEnumerator Atack(){
@@ -49,12 +62,15 @@ public class PoseidonTrident : MonoBehaviour
         {
             for (float i = angulo - 20; i <= angulo + 20; i += 10)
             {
-                shot = Instantiate(gameObject, transform.position, Quaternion.Euler(0, 0, i));
-                shot.GetComponent<SpriteRenderer>().enabled = true;
-                shot.transform.parent = owner.GetComponent<Character>().shotSpace.transform;
-                shot.GetComponent<PoseidonTrident>().arremessado = true;
-                shot.GetComponent<Collider2D>().enabled = true;
-                shot.GetComponent<Damageble>().damage /= 4;
+                if(actualTridente == tridentes.Count-1) actualTridente = 0;
+                else actualTridente++;
+                tridentes[actualTridente].transform.position = transform.position;
+                tridentes[actualTridente].transform.rotation = Quaternion.Euler(0, 0, i);
+                tridentes[actualTridente].GetComponent<Teleportable>().teleporteOn = true;
+                tridentes[actualTridente].GetComponent<PoseidonTrident>().arremessado = true;
+                // tridentes[actualTridente].GetComponent<SpriteRenderer>().enabled = true;
+                // tridentes[actualTridente].GetComponent<Collider2D>().enabled = true;
+                // tridentes[actualTridente].GetComponent<Damageble>().damage /= 4;
                 yield return new WaitForSeconds(0.05f);
             }
         }

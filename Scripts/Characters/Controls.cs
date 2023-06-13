@@ -6,12 +6,12 @@ using System;
 
 public class Controls : MonoBehaviour
 {
-    private Unificator controller;
     private Status status;
+    [SerializeField] private Character body;
 
     private void Start() {
-        controller = GetComponent<Unificator>();
-        status = GetComponent<Status>();
+        status = transform.GetChild(0).GetComponent<Status>();
+        body = transform.GetChild(0).GetComponent<Character>();
     }
 
     public void Moviment(InputAction.CallbackContext value){
@@ -22,23 +22,20 @@ public class Controls : MonoBehaviour
     }
 
     public void AtackButton(InputAction.CallbackContext value){
-        if(value.phase.ToString() == "Started") controller.atackButtonPress = true;
-        if(value.phase.ToString() == "Canceled") controller.Atack();
+        if(value.phase.ToString() == "Canceled") body.Atack();
     }
 
     public void JumpButton(InputAction.CallbackContext value){
         if(value.phase.ToString() == "Started"){
-            controller.jumpButtonPress = true;
-            controller.Jump();
+            body.Jump();
         }
-        if(value.phase.ToString() == "Canceled") controller.jumpButtonPress = false;
     }
 
     public void SpecialButton(InputAction.CallbackContext value){
         if(value.phase.ToString() == "Started"){
-            controller.specialButtonPress = true;
-            controller.Special();
+            status.usingSpecial = true;
+            body.Special();
         }
-        if(value.phase.ToString() == "Canceled") controller.specialButtonPress = false;
+        if(value.phase.ToString() == "Canceled") status.usingSpecial = false;
     }
 }
