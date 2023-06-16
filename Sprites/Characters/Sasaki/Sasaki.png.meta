@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87645c786f0646e4aa56fd08602b9879
+guid: 7d7e25a439188a14dae25866f61c75e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jumping-Poseidon_0
+      name: Sasaki_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 20
-        width: 76
-        height: 100
+        x: 32
+        y: 376
+        width: 72
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef63499515832c641983248232a50d13
-      internalID: -312536143
+      spriteID: b5ec35ba242942f478d8ce151eacc760
+      internalID: 1539066951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jumping-Poseidon_1
+      name: Sasaki_1
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 88
-        height: 136
+        x: 152
+        y: 376
+        width: 72
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfad69fe34174534f9873e4d611c68c6
-      internalID: -58547167
+      spriteID: 1afe7b8231c5ac64cac903d057f04a96
+      internalID: 63393527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 376
+        width: 68
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61842d29f1eff4f4f96f672b09e8ab87
+      internalID: 1774345338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_3
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 252
+        width: 68
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f044006688f39ff47944a61fc07db568
+      internalID: 152636788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 252
+        width: 76
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec562b592bda4934f8684a9aa4bc8c3a
+      internalID: -1525248011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_5
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 252
+        width: 68
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1016c1d4549d2dd449d2e2c301c451d3
+      internalID: -1686563940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 128
+        width: 66
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c006bb85b3e4b0248ab839aed26b9014
+      internalID: 1904408474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 134
+        width: 66
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4268ff2f0934af41a25723fb4404d94
+      internalID: 1009852387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 136
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be403a9733da82348a5ab86fdf7b3487
+      internalID: 18040777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sasaki_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 70
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d034e2ede39a4849823b098d493052d
+      internalID: -1523044212
       vertices: []
       indices: 
       edges: []
@@ -193,8 +361,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jumping-Poseidon_0: -312536143
-      Jumping-Poseidon_1: -58547167
+      Sasaki_0: 1539066951
+      Sasaki_1: 63393527
+      Sasaki_2: 1774345338
+      Sasaki_3: 152636788
+      Sasaki_4: -1525248011
+      Sasaki_5: -1686563940
+      Sasaki_6: 1904408474
+      Sasaki_7: 1009852387
+      Sasaki_8: 18040777
+      Sasaki_9: -1523044212
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
