@@ -18,10 +18,12 @@ public class AnimationChar : MonoBehaviour
 
     private void Update() {
         //Flip
-        if(status.axisX > 0){
-            Flip(1, 1);
-        } else if(status.axisX < 0){
-            Flip(-1, 1);
+        if(status.canControl){
+            if(status.axisX > 0){
+                Flip(1, 1);
+            } else if(status.axisX < 0){
+                Flip(-1, 1);
+            }
         }
 
         //Animacoes

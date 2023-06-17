@@ -23,6 +23,8 @@ public class PoseidonBasic : Character
     override public bool Atack () {
         bool can = base.Atack();
         if(can){
+            status.usingAtack = true;
+
             //Consertar direcao do ataque
             int axisY = GetComponentInParent<Status>().axisY;
             int axisX = GetComponentInParent<Status>().axisX;
@@ -61,6 +63,9 @@ public class PoseidonBasic : Character
         if(status.isGrounded && axisY != 1){
             axisX = GetComponentInParent<Status>().axisXLast;
             axisY = GetComponentInParent<Status>().axisYLast;
+        }
+        while(status.usingAtack){
+            yield return new WaitForSeconds(0.1f);
         }
 
         if(status.stamina > status.specialCost){

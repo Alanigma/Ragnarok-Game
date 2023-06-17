@@ -12,10 +12,12 @@ public class PoseidonTrident : MonoBehaviour
     [SerializeField] private bool arremessado;
     private int actualTridente;
     private Collider2D col;
+    private Status status;
 
     private void Start() {
         col = GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(col, owner.GetComponent<Collider2D>());
+        status = owner.GetComponent<Status>();
     }
 
     private void FixedUpdate() {
@@ -42,6 +44,7 @@ public class PoseidonTrident : MonoBehaviour
     }
 
     public IEnumerator Atack(){
+        status.canControl = false;
         transform.localPosition = new Vector3(0, 0, 0);
         GetComponent<ParticleSystem>().Play();
         GetComponent<AudioSource>().Play();
@@ -55,6 +58,8 @@ public class PoseidonTrident : MonoBehaviour
         col.enabled = false;
         transform.localPosition = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 135);
+        status.usingAtack = false;
+        status.canControl = true;
     }
 
     public IEnumerator Special(float angulo){

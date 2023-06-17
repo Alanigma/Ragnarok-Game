@@ -24,14 +24,13 @@ public class Status : MonoBehaviour
     [Header("Debug")]
     private float staminaRegenCooldown;
     public float actualAtackCooldown;
-    public float actualAtackDuration;
     public float actualSpecialCooldown;
-    public float actualSpecialDuration;
     public int axisX;
     public int axisY;
     public int axisXLast = 1;
     public int axisYLast = 0;
     public bool canMove = true;
+    public bool canControl = true;
     public bool isMoving;
     public bool usingAtack;
     public bool usingSpecial;
@@ -55,22 +54,8 @@ public class Status : MonoBehaviour
         if(actualAtackCooldown > 0){
             actualAtackCooldown -= Time.deltaTime;
         }
-        if(actualAtackDuration > 0){
-            actualAtackDuration -= Time.deltaTime;
-            usingAtack = true;
-        } else{
-            usingAtack = false;
-        }
         if(actualSpecialCooldown > 0){
             actualSpecialCooldown -= Time.deltaTime;
-        }
-        if(specialDuration != Mathf.Infinity){
-            if(actualSpecialDuration > 0){
-                actualSpecialDuration -= Time.deltaTime;
-                usingSpecial = true;
-            } else{
-                usingSpecial = false;
-            }
         }
     }
 
@@ -89,13 +74,7 @@ public class Status : MonoBehaviour
     public void AtackCooldownCount(){
         actualAtackCooldown = atackCooldown;
     }
-    public void AtackDurationCount(){
-        actualAtackDuration = atackDuration;
-    }
     public void SpecialCooldownCount(){
         actualSpecialCooldown = specialCooldown;
-    }
-    public void SpecialDurationCount(){
-        actualSpecialDuration = specialDuration;
     }
 }

@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
 
     virtual protected void Update() {
         //Andar para os lados
-        if(status.actualAtackDuration <= 0 && status.canMove){
+        if(status.canControl && status.canMove){
             rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
         }
 
@@ -54,11 +54,10 @@ public class Character : MonoBehaviour
     }
 
     virtual public bool Atack () {
-        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && status.actualAtackDuration <= 0){
+        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && !status.usingAtack && !status.usingSpecial){
             status.GastarStamina(status.atackCost);
             if(status.actualAtackCooldown <= 0){
                 status.AtackCooldownCount();
-                status.AtackDurationCount();
                 return true;
             }
         }
@@ -66,7 +65,7 @@ public class Character : MonoBehaviour
     }
 
     virtual public void Special(){
-        if(status.stamina > status.specialCost && status.actualSpecialCooldown <= 0 && status.actualSpecialDuration <= 0){
+        if(status.stamina > status.specialCost && status.actualSpecialCooldown <= 0 && !status.usingAtack && !status.usingSpecial){
             status.GastarStamina(status.specialCost);
             if(status.actualSpecialCooldown <= 0){
                 status.SpecialCooldownCount();

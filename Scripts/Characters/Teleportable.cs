@@ -44,7 +44,14 @@ public class Teleportable : MonoBehaviour
         foreach (GameObject clone in clones)
         {
             clone.transform.rotation = transform.rotation;
-            clone.transform.localScale = transform.localScale;
+            clone.transform.localScale = transform.lossyScale;
+            if(GetComponent<ParticleSystem>() != null)
+            {
+                if(GetComponent<ParticleSystem>().isPlaying == true)
+                    clone.GetComponent<ParticleSystem>().Play();
+                else
+                    clone.GetComponent<ParticleSystem>().Stop();
+            }
         }
 
         clones[0].transform.position = new Vector2(transform.position.x + 17.8f, transform.position.y);
