@@ -20,17 +20,19 @@ public class Character : MonoBehaviour
     }
 
     virtual protected void Update() {
-        //Andar para os lados
-        if(status.canControl && status.canMove){
-            rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
-        }
+        if(rb.bodyType == RigidbodyType2D.Dynamic){
+            //Andar para os lados
+            if(status.canControl && status.canMove){
+                rb.velocity = new Vector2(status.speed * status.axisX, rb.velocity.y < status.maxSpeedY ? status.maxSpeedY : rb.velocity.y);
+            }
 
-        //Travar o personagem
-        if(!status.canMove){
-            rb.simulated = false;
-            rb.velocity = new Vector2(0, 0);
-        } else{
-            rb.simulated = true;
+            //Travar o personagem
+            if(!status.canMove){
+                rb.simulated = false;
+                rb.velocity = new Vector2(0, 0);
+            } else{
+                rb.simulated = true;
+            }
         }
     }
 
@@ -54,22 +56,20 @@ public class Character : MonoBehaviour
     }
 
     virtual public bool Atack () {
-        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && !status.usingAtack && !status.usingSpecial){
+        if(status.stamina > status.atackCost && status.actualAtackCooldown <= 0 && !status.usingAtack && !status.usingSpecial && status.actualAtackCooldown <= 0){
             status.GastarStamina(status.atackCost);
-            if(status.actualAtackCooldown <= 0){
-                status.AtackCooldownCount();
-                return true;
-            }
+            status.AtackCooldownCount();
+            return true;
         }
         return false;
     }
 
-    virtual public void Special(){
-        if(status.stamina > status.specialCost && status.actualSpecialCooldown <= 0 && !status.usingAtack && !status.usingSpecial){
+    virtual public bool Special(){
+        if(status.stamina > status.specialCost && status.actualSpecialCooldown <= 0 && !status.usingAtack && status.actualSpecialCooldown <= 0){
             status.GastarStamina(status.specialCost);
-            if(status.actualSpecialCooldown <= 0){
-                status.SpecialCooldownCount();
-            }
+            status.SpecialCooldownCount();
+            return true;
         }
+        return false;
     }
 }

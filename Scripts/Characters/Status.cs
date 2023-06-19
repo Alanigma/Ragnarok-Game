@@ -5,6 +5,8 @@ using UnityEngine;
 public class Status : MonoBehaviour
 {
     [Header("Settings")]
+    public GameObject shadow;
+    [SerializeField] protected GameObject shadowPrefab;
     [SerializeField] protected LayerMask layerGround;
     public float speed;
     public float jumpForce;
@@ -35,6 +37,7 @@ public class Status : MonoBehaviour
     public bool usingAtack;
     public bool usingSpecial;
     public bool isGrounded;
+    public bool shadowOn;
 
     private RaycastHit2D ground;
     private Collider2D col;
@@ -43,6 +46,7 @@ public class Status : MonoBehaviour
         col = GetComponent<Collider2D>();
         life = maxLife;
         stamina = maxStamina;
+        if(gameObject.layer != 9) shadow = Instantiate(shadowPrefab, new Vector2(14, -6), transform.rotation);
     }
 
     private void Update() {
@@ -76,5 +80,13 @@ public class Status : MonoBehaviour
     }
     public void SpecialCooldownCount(){
         actualSpecialCooldown = specialCooldown;
+    }
+
+    public void Remove(GameObject target){
+        target.GetComponent<Teleportable>().teleporteOn = false;
+        target.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        target.transform.position = new Vector2(14, -6);
+        target.transform.rotation = Quaternion.Euler(0, 0, 0);
+        target.transform.localScale = new Vector3(1, 1, 1);
     }
 }

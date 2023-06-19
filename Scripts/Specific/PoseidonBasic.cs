@@ -47,10 +47,15 @@ public class PoseidonBasic : Character
         return true;
     }
 
-    public override void Special()
+    public override bool Special()
     {
-        base.Special();
-        StartCoroutine(AtackRain());
+        bool can = base.Special();
+        if(can){
+            base.Special();
+            StartCoroutine(AtackRain());
+        }
+        //So pq o outro tem que ser bool
+        return true;
     }
 
     private IEnumerator AtackRain(){

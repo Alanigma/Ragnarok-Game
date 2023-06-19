@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e47de2521c85f340b22443db3a63d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0
+  body: {fileID: 0}
 --- !u!114 &61624304722281288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +76,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 61624306265785414}
-        m_TargetAssemblyTypeName: PlayerOnly, Assembly-CSharp
-        m_MethodName: Moviment
+        m_TargetAssemblyTypeName: Controls, Assembly-CSharp
+        m_MethodName: MovimentGet
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

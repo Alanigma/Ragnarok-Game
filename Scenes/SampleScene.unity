@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 126740096}
   m_Layer: 0
   m_Name: -----Characters-----
-  m_TagString: Untagged
+  m_TagString: character-space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,14 +563,6 @@ PrefabInstance:
     - target: {fileID: -7958586862456607160, guid: 0e0fbf28533c077438f8c96f4bc8d69e, type: 3}
       propertyPath: shotSpace
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -26697065139128096, guid: 0e0fbf28533c077438f8c96f4bc8d69e, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -26697065139128096, guid: 0e0fbf28533c077438f8c96f4bc8d69e, type: 3}
-      propertyPath: jumpForce
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 83124575467841658, guid: 0e0fbf28533c077438f8c96f4bc8d69e, type: 3}
       propertyPath: m_Name
@@ -1866,6 +1858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625035494447764248, guid: 5480db92621b48644a287cf05387de06, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6530811749070587303, guid: 5480db92621b48644a287cf05387de06, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -2046,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 61624304722281288, guid: 810104f9bc09056459909080bd3c106d, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Moviment
+      value: MovimentGet
       objectReference: {fileID: 0}
     - target: {fileID: 61624304722281288, guid: 810104f9bc09056459909080bd3c106d, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

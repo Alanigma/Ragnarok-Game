@@ -7,6 +7,7 @@ public class PoseidonTrident : MonoBehaviour
     public GameObject owner;
     public List<GameObject> tridentes;
     [SerializeField] private float speed;
+    [SerializeField] private float damage;
     [SerializeField] private float arremessadoTempo;
 
     [SerializeField] private bool arremessado;
@@ -31,6 +32,9 @@ public class PoseidonTrident : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.layer == 8){
+            other.gameObject.GetComponent<Character>().TakeDamage(damage);
+        }
         if(arremessado){
             Remove();
         }

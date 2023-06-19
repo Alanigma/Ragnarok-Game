@@ -216,6 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d614e01161fb8d142bb8230e220c529b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadow: {fileID: 0}
+  shadowPrefab: {fileID: 83124575467841658, guid: e66902f5c6aae4049ac47209c643a535, type: 3}
   layerGround:
     serializedVersion: 2
     m_Bits: 64
@@ -234,18 +236,18 @@ MonoBehaviour:
   stamina: 100
   staminaRegen: 0.6
   actualAtackCooldown: 0
-  actualAtackDuration: 0
   actualSpecialCooldown: 0
-  actualSpecialDuration: 0
   axisX: 0
   axisY: 0
   axisXLast: 1
   axisYLast: 0
   canMove: 1
+  canControl: 1
   isMoving: 0
   usingAtack: 0
   usingSpecial: 0
   isGrounded: 0
+  shadowOn: 0
 --- !u!1001 &9185421478493776875
 PrefabInstance:
   m_ObjectHideFlags: 0

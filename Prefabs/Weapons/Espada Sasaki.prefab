@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 1274391496768501687}
   - component: {fileID: 2431744032670257375}
   - component: {fileID: 3822838128083043936}
+  - component: {fileID: 5007778517226424459}
   - component: {fileID: 559786280624061220}
   - component: {fileID: 2588006405402380758}
   - component: {fileID: 2134670262228876964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Espada Sasaki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,13 +96,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031139122304735063}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020473719, y: 0.16603732}
+  m_Offset: {x: -0.020473719, y: 0.16668588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,8 +113,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.076713085, y: 0.8679254}
+  m_Size: {x: 0.076713085, y: 0.8692225}
   m_EdgeRadius: 0
+--- !u!114 &5007778517226424459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031139122304735063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b62bb6ca5a54dc40b5b7f2df9f0fb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!114 &559786280624061220
 MonoBehaviour:
   m_ObjectHideFlags: 0
